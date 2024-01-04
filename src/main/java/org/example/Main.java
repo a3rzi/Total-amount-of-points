@@ -52,7 +52,7 @@ public class Main {
                 totalPoints+=1; //draw
             }
              else {
-                 totalPoints+=0; //lose
+                 totalPoints+=0; //loss
             }
         }
         return totalPoints;
