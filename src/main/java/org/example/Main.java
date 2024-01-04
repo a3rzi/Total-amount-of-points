@@ -1,5 +1,7 @@
 package org.example;
 
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
         //Given
@@ -8,9 +10,20 @@ public class Main {
 // where x is our team's score and y is our opponents score.
         //Notes:
         //our team always plays 10 matches in the championship //so we use Array
-        //0 <= x <= 4
-        //0 <= y <= 4
-        String[] matchResults = {"3:1", "2:2", "0:1", "4:2", "1:0", "0:0", "2:1", "3:3", "1:2", "4:0"};
+        //String[] matchResults = {"3:1", "2:2", "0:1", "4:2", "1:0", "0:0", "2:1", "3:3", "1:2", "4:0"};
+
+        //get user input
+        String[] matchResults = new String[10];
+        Scanner input = new Scanner(System.in);
+        for (int i=0; i<10; i++){
+            System.out.println("Enter result for match " + (i+1) + ", our team score is: ");
+            String ourScore=input.nextLine();
+
+            System.out.println("Enter opponent's score: ");
+            String opponentScore = input.nextLine();
+
+            matchResults[i]=ourScore+ ":" + opponentScore;
+        }
 
         //When
         //We need to write a function that takes this collection
@@ -18,9 +31,6 @@ public class Main {
 
         int totalPoints = calculatePoints(matchResults);
         System.out.println("Total points: " + totalPoints);
-        System.out.println(matchResults);
-
-
     }
 
     private static int calculatePoints(String[] matchResults) {
